@@ -485,8 +485,8 @@ macro_rules! define_aes_impl {
                 unsafe {
                     let simd_256_keys = self
                         .simd_256_keys
-                        .get_or_init(|| vaes256::$module::broadcast_keys(&self.keys));
-                    vaes256::$module::encrypt30(simd_256_keys, blocks);
+                        .get_or_init(|| vaes256::encdec::broadcast_keys(&self.keys));
+                    vaes256::encdec::encrypt30(simd_256_keys, blocks);
                 }
             }
             #[inline]
@@ -527,8 +527,8 @@ macro_rules! define_aes_impl {
                 unsafe {
                     let simd_512_keys = self
                         .simd_512_keys
-                        .get_or_init(|| vaes512::$module::broadcast_keys(&self.keys));
-                    vaes512::$module::encrypt64(simd_512_keys, blocks);
+                        .get_or_init(|| vaes512::encdec::broadcast_keys(&self.keys));
+                    vaes512::encdec::encrypt64(simd_512_keys, blocks);
                 }
             }
             #[inline]
@@ -595,8 +595,8 @@ macro_rules! define_aes_impl {
                 unsafe {
                     let simd_256_keys = self
                         .simd_256_keys
-                        .get_or_init(|| vaes256::$module::broadcast_keys(&self.keys));
-                    vaes256::$module::decrypt30(simd_256_keys, blocks);
+                        .get_or_init(|| vaes256::encdec::broadcast_keys(&self.keys));
+                    vaes256::encdec::decrypt30(simd_256_keys, blocks);
                 }
             }
             #[inline]
@@ -637,8 +637,8 @@ macro_rules! define_aes_impl {
                 unsafe {
                     let simd_512_keys = self
                         .simd_512_keys
-                        .get_or_init(|| vaes512::$module::broadcast_keys(&self.keys));
-                    vaes512::$module::decrypt64(simd_512_keys, blocks);
+                        .get_or_init(|| vaes512::encdec::broadcast_keys(&self.keys));
+                    vaes512::encdec::decrypt64(simd_512_keys, blocks);
                 }
             }
             #[inline]
