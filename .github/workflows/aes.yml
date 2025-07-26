@@ -320,6 +320,12 @@ jobs:
           - target: riscv64gc-unknown-linux-gnu
             rustflags: '-Ctarget-feature=+zkne,+zknd'
             rust: nightly
+          - target: riscv64gc-unknown-linux-gnu
+            rustflags: '-Ctarget-feature=+v,+zvkned --cfg=aes_zvkned'
+            rust: nightly
+          - target: riscv64gc-unknown-linux-gnu
+            rustflags: '-Ctarget-feature=+zkne,+zknd,+v,+zvkned --cfg=aes_zvkned'
+            rust: nightly
     runs-on: ubuntu-latest
     defaults:
       run:
